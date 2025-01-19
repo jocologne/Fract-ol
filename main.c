@@ -3,41 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcologne <jcologne@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:12:51 by jcologne          #+#    #+#             */
-/*   Updated: 2025/01/09 15:02:52 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/01/18 21:53:27 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./fractol.h"
 
-void print_error()
+static void	error_message(void)
 {
-	ft_printf("Choose a fractal type:\n\n");
-	ft_printf("M for Mandelbrot\n");
-	ft_printf("J <x> <y> for Julia*\n\n");
+	ft_printf("Choose a fractal type as argument:\n\n");
+	ft_printf("./fractol mandelbrot\n");
+	ft_printf("./fractol julia <x> <y>*\n\n");
 	ft_printf("*x and y must be float point numbers between 2.0 and -2.0\n");
 }
 
-int main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-	if (argc < 2)
+	t_fractal	fractal;
+
+	if ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10))
+		|| (ac == 4 && !ft_strncmp(av[1], "julia", 5)))
 	{
-		print_error();
-		return(1);
-	}
-	if (argv[1][0] == 'M')
-		ft_printf("Mandelbrot");
-	else if (argv[1][0] == 'J')
-	{
-		if (argc != 4 || atoi(argv[2]) > 2 || atoi(argv[2]) < -2 || atoi(argv[3]) > 2 || atoi(argv[3]) < -2)
+		fractal.name = av[1];
+		if (!ft_strncmp(fractal.name, "julia", 5))
 		{
-			print_error();
-			return(3);
+			//fractal.julia_x = //TODO
+			//fractal.julia_y = //TODO
 		}
-		ft_printf("Julia");
+		data_init(&fractal);
+		image_render(&fractal);
+		mlx_loop(fractal.mlx);
 	}
 	else
-		print_error();	
+	{
+		error_message();
+		return (3);
+	}
 }
