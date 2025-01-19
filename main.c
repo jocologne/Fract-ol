@@ -6,7 +6,7 @@
 /*   By: jcologne <jcologne@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:12:51 by jcologne          #+#    #+#             */
-/*   Updated: 2025/01/18 21:53:27 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/01/19 04:37:32 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	main(int ac, char **av)
 		fractal.name = av[1];
 		if (!ft_strncmp(fractal.name, "julia", 5))
 		{
-			//fractal.julia_x = //TODO
-			//fractal.julia_y = //TODO
+			fractal.julia_x = ft_atodbl(av[2]);
+			fractal.julia_y = ft_atodbl(av[3]);
 		}
 		data_init(&fractal);
 		image_render(&fractal);

@@ -6,7 +6,7 @@
 /*   By: jcologne <jcologne@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:09:10 by jcologne          #+#    #+#             */
-/*   Updated: 2025/01/18 23:48:21 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/01/19 04:53:17 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,13 @@
 # include "minilibx-linux/mlx.h"
 
 //Window
-# define W 800
-# define H 800
-
-//Palette
-# define C1 = 0x0000FF
-# define C2 = 0x00FF00
-# define C3 = 0xFF0000
-# define C4 = 0xFFFF00
-# define C5 = 0xFF00FF
+# define W 400
+# define H 400
 
 typedef struct s_complex
 {
-	double real;
-	double img;
+	double x;
+	double y;
 }	t_complex;
 
 typedef struct s_img
@@ -58,10 +51,8 @@ typedef struct s_fractal
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
-	double	julia_real;
-	double	julia_img;
-	int		*palette;
-	int		palette_size;
+	double	julia_x;
+	double	julia_y;
 }	t_fractal;
 
 //render
@@ -73,10 +64,12 @@ void	data_init(t_fractal *fractal);
 //events
 int	close_event(t_fractal *fractal);
 int	key_event(int key, t_fractal *fractal);
+int	mouse_event(int button, int x, int y, t_fractal *fractal);
 
 //math
 double convert(int pixel, double min, double max, int size);
 t_complex sum(t_complex n1, t_complex n2);
 t_complex	square(t_complex n);
+double ft_atodbl(char *str);
 
 #endif
