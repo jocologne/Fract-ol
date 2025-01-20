@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   math_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcologne <jcologne@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 20:58:20 by jcologne          #+#    #+#             */
-/*   Updated: 2025/01/19 04:38:31 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:46:44 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-double convert(int pixel, double min, double max, int size)
+double	convert(int pixel, double min, double max, int size)
 {
-    return min + (pixel / (double)size) * (max - min);
+	return (min + (pixel / (double)size) * (max - min));
 }
 
 t_complex	sum(t_complex n1, t_complex n2)
@@ -35,36 +35,31 @@ t_complex	square(t_complex n)
 	return (result);
 }
 
-double ft_atodbl(char *str)
+double	ft_atodbl(char *str)
 {
-    double result;
-    double factor;
-    int    i;
-    int    sign;
+	double	result;
+	double	factor;
+	int		sign;
 
-    i = 0;
-    result = 0;
-    sign = 1;
-    if (str[i] == '-')
-    {
-        sign = -1;
-        i++;
-    }
-    while (str[i] >= '0' && str[i] <= '9')
-    {
-        result = (result * 10) + (str[i] - '0');
-        i++;
-    }
-    if (str[i] == '.')
-    {
-        i++;
-        factor = 0.1;
-        while (str[i] >= '0' && str[i] <= '9')
-        {
-            result += (str[i] - '0') * factor;
-            factor *= 0.1;
-            i++;
-        }
-    }
-    return (result * sign);
+	result = 0;
+	sign = 1;
+	if (*str == '-')
+	{
+		sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+		result = (result * 10) + ((*str++) - '0');
+	if (*str == '.')
+	{
+		str++;
+		factor = 0.1;
+		while (*str >= '0' && *str <= '9')
+		{
+			result += (*str - '0') * factor;
+			factor *= 0.1;
+			str++;
+		}
+	}
+	return (result * sign);
 }
