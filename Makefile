@@ -35,7 +35,7 @@ SRC = main.c\
 		math_utils.c
 OBJ = $(SRC:.c=.o)
 
-all: $(LIBFT) $(PRINT) $(LIBX) $(NAME)
+all: init-submodules $(LIBFT) $(PRINT) $(LIBX) $(NAME)
 
 $(LIBFT):
 	@$(MAKE) -C $(LIBFT_PATH)  > /dev/null 2>/dev/null
@@ -63,5 +63,13 @@ fclean: clean
 	@$(RM) $(NAME)
 	@$(MAKE) fclean -C $(LIBFT_PATH) > /dev/null 2>/dev/null
 	@$(MAKE) fclean -C $(PRINT_PATH) > /dev/null 2>/dev/null
+
+init-submodules:
+	@if [ ! -d "minilibx-linux" ] || [ ! -f "minilibx-linux/.git" ]; then \
+		echo "Inicializando submódulo minilibx..."; \
+		git submodule update --init --recursive minilibx-linux; \
+	else \
+		echo "Submódulo minilibx já está inicializado."; \
+	fi
 
 re: fclean all
