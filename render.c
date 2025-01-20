@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcologne <jcologne@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 20:09:09 by jcologne          #+#    #+#             */
-/*   Updated: 2025/01/19 05:08:26 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/01/20 19:33:18 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	pixel_color(int x, int y, t_fractal *fractal)
 		z = sum(square(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_distance)
 		{
-			color = 0x000000 + i * (0x001200 + (0x000012 *(1/fractal->zoom)));
+			color = i * (0x001200 + (0x000012 *(1 / fractal->zoom)));
 			buffer_pixel(x, y, &fractal->img, color);
 			return ;
 		}
@@ -75,5 +75,7 @@ void	image_render(t_fractal *fractal)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(fractal->mlx, fractal->window, fractal->img.img_pointer, 0, 0);
+	mlx_put_image_to_window(fractal->mlx,
+		fractal->window,
+		fractal->img.img_pointer, 0, 0);
 }

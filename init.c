@@ -6,7 +6,7 @@
 /*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:14:21 by jcologne          #+#    #+#             */
-/*   Updated: 2025/01/20 17:46:23 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/01/20 19:33:57 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ void	data_init(t_fractal *f)
 		free(f->mlx);
 		exit (6);
 	}
-	f->img.pixel_pointer = mlx_get_data_addr(f->img.img_pointer, &f->img.bpp, &f->img.line_len, &f->img.endian);
+	f->img.pixel_pointer = mlx_get_data_addr(f->img.img_pointer,
+			&f->img.bpp,
+			&f->img.line_len,
+			&f->img.endian);
 	events(f);
 	data_fill(f);
 }

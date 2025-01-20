@@ -35,7 +35,10 @@ SRC = main.c\
 		math_utils.c
 OBJ = $(SRC:.c=.o)
 
-all: init-submodules $(LIBFT) $(PRINT) $(LIBX) $(NAME)
+all: clone $(LIBFT) $(PRINT) $(LIBX) $(NAME)
+
+clone:
+	@git clone https://github.com/42Paris/minilibx-linux.git
 
 $(LIBFT):
 	@$(MAKE) -C $(LIBFT_PATH)  > /dev/null 2>/dev/null
@@ -58,6 +61,7 @@ $(NAME) : $(OBJ)
 clean:
 	@$(RM) *.o
 	@$(MAKE) clean -C $(LIBX_PATH) > /dev/null 2>/dev/null
+	@rm -rf minilibx-linux
 
 fclean: clean
 	@$(RM) $(NAME)
