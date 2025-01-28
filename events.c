@@ -6,7 +6,7 @@
 /*   By: jcologne <jcologne@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:49:19 by jcologne          #+#    #+#             */
-/*   Updated: 2025/01/28 15:02:33 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:03:59 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	close_event(t_fractal *fractal)
 	}
 	exit(0);
 }
-
 
 int	key_event(int key, t_fractal *fractal)
 {
