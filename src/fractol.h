@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcologne <jcologne@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:09:10 by jcologne          #+#    #+#             */
-/*   Updated: 2025/01/28 15:02:27 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:50:22 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <stdlib.h>
 # include <X11/Xlib.h>
 # include <X11/keysym.h>
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
-# include "minilibx-linux/mlx.h"
+# include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
+# include "../minilibx-linux/mlx.h"
 
 //Window
 # define W 400

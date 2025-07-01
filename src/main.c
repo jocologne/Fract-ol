@@ -6,11 +6,11 @@
 /*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:12:51 by jcologne          #+#    #+#             */
-/*   Updated: 2025/07/01 16:18:11 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:48:15 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fractol.h"
+#include "fractol.h"
 
 static void	error_message(void)
 {

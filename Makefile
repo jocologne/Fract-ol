@@ -20,6 +20,7 @@ LIBX = $(LIBX_PATH)$(LIBX_NAME)
 CC = cc
 FLAGS = -Wall -Werror -Wextra
 LIBFLAGS = -lXext -lX11 -lm
+SRC_DIR = src
 
 #Headers
 HDR = -I./ -I./libft -I./ft_printf -I./minilibx-linux
@@ -28,11 +29,11 @@ HDR = -I./ -I./libft -I./ft_printf -I./minilibx-linux
 RM = rm -f
 
 #Sources and Objects
-SRC = main.c\
-		init.c\
-		events.c\
-		render.c\
-		math_utils.c
+SRC = $(SRC_DIR)/main.c\
+		$(SRC_DIR)/init.c\
+		$(SRC_DIR)/events.c\
+		$(SRC_DIR)/render.c\
+		$(SRC_DIR)/math_utils.c
 OBJ = $(SRC:.c=.o)
 
 all: clone $(LIBFT) $(PRINT) $(LIBX) $(NAME)
@@ -59,7 +60,7 @@ $(NAME) : $(OBJ)
 	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	@$(RM) *.o
+	@$(RM) $(SRC_DIR)/*.o
 	@$(MAKE) clean -C $(LIBX_PATH) > /dev/null 2>/dev/null
 	@rm -rf minilibx-linux
 
