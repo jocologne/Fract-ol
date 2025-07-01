@@ -6,7 +6,7 @@
 /*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 20:09:09 by jcologne          #+#    #+#             */
-/*   Updated: 2025/01/20 19:33:18 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/07/01 16:48:26 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	buffer_pixel(int x, int y, t_img *img, int color)
 	*(unsigned int *)(img->pixel_pointer + offset) = color;
 }
 
-static void	man_or_jul(t_complex *z, t_complex *c, t_fractal *fractal)
+static void	fractal_type(t_complex *z, t_complex *c, t_fractal *fractal)
 {
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
@@ -44,9 +44,14 @@ static void	pixel_color(int x, int y, t_fractal *fractal)
 	i = 0;
 	z.x = (convert(x, -2, 2, W) * fractal->zoom) + fractal->shift_x;
 	z.y = (convert(y, -2, 2, H) * fractal->zoom) + fractal->shift_y;
-	man_or_jul (&z, &c, fractal);
+	fractal_type (&z, &c, fractal);
 	while (i < fractal->image_definition)
 	{
+		if (!ft_strncmp(fractal->name, "burningship", 11))
+		{
+			z.x = fabs(z.x);
+			z.y = fabs(z.y);
+		}
 		z = sum(square(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_distance)
 		{

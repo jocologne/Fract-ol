@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcologne <jcologne@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:49:19 by jcologne          #+#    #+#             */
-/*   Updated: 2025/01/28 15:03:59 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:27:42 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,19 @@ int	key_event(int key, t_fractal *fractal)
 
 int	mouse_event(int button, int x, int y, t_fractal *fractal)
 {
+	double	mouse_re;
+	double	mouse_im;
+	double	prev_zoom;
+
+	prev_zoom = fractal->zoom;
+	mouse_re = (convert(x, -2, 2, W) * fractal->zoom) + fractal->shift_x;
+	mouse_im = (convert(y, -2, 2, H) * fractal->zoom) + fractal->shift_y;
 	if (button == Button5)
 		fractal->zoom *= 1.05;
 	if (button == Button4)
 		fractal->zoom *= 0.95;
+	fractal->shift_x = mouse_re - (convert(x, -2, 2, W) * (fractal->zoom));
+	fractal->shift_y = mouse_im - (convert(y, -2, 2, H) * (fractal->zoom));
 	image_render(fractal);
 	return (0);
 }

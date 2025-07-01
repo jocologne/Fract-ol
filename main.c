@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcologne <jcologne@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:12:51 by jcologne          #+#    #+#             */
-/*   Updated: 2025/01/19 04:37:32 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/07/01 16:18:11 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	main(int ac, char **av)
 	t_fractal	fractal;
 
 	if ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10))
-		|| (ac == 4 && !ft_strncmp(av[1], "julia", 5)))
+		|| (ac == 4 && !ft_strncmp(av[1], "julia", 5))
+		|| (ac == 2 && !ft_strncmp(av[1], "burningship", 11)))
 	{
 		fractal.name = av[1];
 		if (!ft_strncmp(fractal.name, "julia", 5))
