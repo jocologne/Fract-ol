@@ -6,7 +6,7 @@
 /*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 20:09:09 by jcologne          #+#    #+#             */
-/*   Updated: 2025/07/01 16:48:26 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:41:54 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ static void	fractal_type(t_complex *z, t_complex *c, t_fractal *fractal)
 	}
 }
 
+static void	aplly_module(t_fractal *fractal, t_complex *z)
+{
+	if (!ft_strncmp(fractal->name, "burningship", 11))
+	{
+		z->x = fabs(z->x);
+		z->y = fabs(z->y);
+	}
+}
+
 static void	pixel_color(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
@@ -47,11 +56,7 @@ static void	pixel_color(int x, int y, t_fractal *fractal)
 	fractal_type (&z, &c, fractal);
 	while (i < fractal->image_definition)
 	{
-		if (!ft_strncmp(fractal->name, "burningship", 11))
-		{
-			z.x = fabs(z.x);
-			z.y = fabs(z.y);
-		}
+		aplly_module(fractal, &z);
 		z = sum(square(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_distance)
 		{
