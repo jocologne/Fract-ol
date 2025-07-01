@@ -6,7 +6,7 @@
 /*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:12:51 by jcologne          #+#    #+#             */
-/*   Updated: 2025/07/01 17:48:15 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:56:32 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	error_message(void)
 {
 	ft_printf("Choose a fractal type as argument:\n\n");
 	ft_printf("./fractol mandelbrot\n");
+	ft_printf("./fractol burningship\n");
 	ft_printf("./fractol julia <x> <y>*\n\n");
 	ft_printf("*x and y must be float point numbers between 2.0 and -2.0\n");
 }
