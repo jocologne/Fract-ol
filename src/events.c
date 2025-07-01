@@ -6,7 +6,7 @@
 /*   By: jcologne <jcologne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:49:19 by jcologne          #+#    #+#             */
-/*   Updated: 2025/07/01 17:27:42 by jcologne         ###   ########.fr       */
+/*   Updated: 2025/07/01 18:15:09 by jcologne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,21 @@ int	mouse_event(int button, int x, int y, t_fractal *fractal)
 {
 	double	mouse_re;
 	double	mouse_im;
-	double	prev_zoom;
+	double	d_re;
+	double	d_im;
 
-	prev_zoom = fractal->zoom;
 	mouse_re = (convert(x, -2, 2, W) * fractal->zoom) + fractal->shift_x;
 	mouse_im = (convert(y, -2, 2, H) * fractal->zoom) + fractal->shift_y;
 	if (button == Button5)
 		fractal->zoom *= 1.05;
 	if (button == Button4)
 		fractal->zoom *= 0.95;
-	fractal->shift_x = mouse_re - (convert(x, -2, 2, W) * (fractal->zoom));
-	fractal->shift_y = mouse_im - (convert(y, -2, 2, H) * (fractal->zoom));
+	d_re = (convert(x, -2, 2, W) - convert(W / 2, -2, 2, W)) * fractal->zoom;
+	d_im = (convert(y, -2, 2, H) - convert(H / 2, -2, 2, H)) * fractal->zoom;
+	fractal->shift_x += d_re * 0.3;
+	fractal->shift_y += d_im * 0.3;
+	fractal->shift_x = mouse_re - (convert(x, -2, 2, W) * fractal->zoom);
+	fractal->shift_y = mouse_im - (convert(y, -2, 2, H) * fractal->zoom);
 	image_render(fractal);
 	return (0);
 }
