@@ -23,8 +23,8 @@ Fractol is an interactive fractal viewer written in C. The program uses the Mini
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-GITHUB-USERNAME/fractol.git
-cd fractol
+git clone https://github.com/jocologne/Fract-ol.git
+cd Fract-ol
 make
 ./fractol mandelbrot
 ./fractol julia <r> <i>
