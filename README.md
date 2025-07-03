@@ -42,7 +42,7 @@ make
     </td>
     <td align="center" style="padding:10px">
       <img src="screenshots/julia_0.285_0.01.png" width="200" alt="Julia Example"/><br/>
-      <sub>Julia (-0.285, 0.01)</sub>
+      <sub>Julia (0.285, 0.01)</sub>
     </td>
   </tr>
 </table>
