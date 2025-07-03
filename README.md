@@ -35,6 +35,6 @@ make
 <p align="center">
   <img src="screenshots/burningship.png" width="200" alt="Burningship Example"/>
   <img src="screenshots/mandelbrot.png" width="200" alt="Mandelbrot Example"/>
-  <img src="screenshots/julia.png" width="200" alt="Julia 0.285 0.01 Example"/>
+  <img src="screenshots/julia_0.285_0.01.png" width="200" alt="Julia 0.285 0.01 Example"/>
 </p>
 
