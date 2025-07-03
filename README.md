@@ -30,4 +30,11 @@ make
 ./fractol julia <r> <i>
 ./fractol burningship
 ```
+## 🖼️ Screenshots
+
+<p align="center">
+  <img src="screenshots/burningship.png" width="400" alt="Burningship Example"/>
+  <img src="screenshots/mandelbrot.png" width="400" alt="Mandelbrot Example"/>
+  <img src="screenshots/julia.png" width="400" alt="Julia 0.285 0.01 Example"/>
+</p>
 
