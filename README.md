@@ -20,8 +20,6 @@ Fractol is an interactive fractal viewer written in C. The program uses the Mini
 
 ## 🚀 Getting Started
 
-### 1️⃣ Clone the repository
-
 ```bash
 git clone https://github.com/jocologne/Fract-ol.git
 cd Fract-ol
@@ -32,9 +30,21 @@ make
 ```
 ## 🖼️ Screenshots
 
-<p align="center">
-  <img src="screenshots/burningship.png" width="200" alt="Burningship Example"/>
-  <img src="screenshots/mandelbrot.png" width="200" alt="Mandelbrot Example"/>
-  <img src="screenshots/julia_0.285_0.01.png" width="200" alt="Julia 0.285 0.01 Example"/>
-</p>
+<table align="center">
+  <tr>
+    <td align="center" style="padding:10px">
+      <img src="screenshots/burningship.png" width="200" alt="Burningship Example"/><br/>
+      <sub>Burning Ship</sub>
+    </td>
+    <td align="center" style="padding:10px">
+      <img src="screenshots/mandelbrot.png" width="200" alt="Mandelbrot Example"/><br/>
+      <sub>Mandelbrot</sub>
+    </td>
+    <td align="center" style="padding:10px">
+      <img src="screenshots/julia_0.285_0.01.png" width="200" alt="Julia Example"/><br/>
+      <sub>Julia (-0.285, 0.01)</sub>
+    </td>
+  </tr>
+</table>
+
 
